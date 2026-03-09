@@ -1,0 +1,4 @@
+biblioteca.nombre=Biblioteca CyT
+sistema.version=1.0
+max.prestamos=3
+max.intentos.login=4
