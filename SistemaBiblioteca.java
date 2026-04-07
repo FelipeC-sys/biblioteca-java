@@ -33,15 +33,15 @@ public class SistemaBiblioteca {
 
     public void actualizarDisponibilidad(String isbn, boolean estado) {
 
-    Libro libro = buscarLibro(isbn);
+        Libro libro = buscarLibro(isbn);
 
-    if (libro != null) {
-        libro.disponible = estado;
-        System.out.println("Estado actualizado");
-    } else {
-        System.out.println("Libro no encontrado");
+        if (libro != null) {
+            libro.disponible = estado;
+            System.out.println("Estado actualizado");
+        } else {
+            System.out.println("Libro no encontrado");
+        }
     }
-}
 
     public void listarLibros() {
 
@@ -69,44 +69,44 @@ public class SistemaBiblioteca {
 
     public void registrarUsuario(Usuario usuario) {
 
-    for (Usuario u : usuarios) {
-        if (u.documento.equals(usuario.documento)) {
-            System.out.println("Documento ya existe");
-            return;
+        for (Usuario u : usuarios) {
+            if (u.documento.equals(usuario.documento)) {
+                System.out.println("Documento ya existe");
+                return;
+            }
+        }
+
+        usuarios.add(usuario);
+        System.out.println("Usuario registrado");
+    }
+
+    public void listarUsuarios() {
+
+        for (Usuario u : usuarios) {
+            u.mostrar();
         }
     }
 
-    usuarios.add(usuario);
-    System.out.println("Usuario registrado");
-}
+    public Usuario buscarUsuario(String doc) {
 
-public void listarUsuarios() {
+        for (Usuario u : usuarios) {
+            if (u.documento.equals(doc)) {
+                return u;
+            }
+        }
 
-    for (Usuario u : usuarios) {
-        u.mostrar();
+        return null;
     }
-}
 
-public Usuario buscarUsuario(String doc) {
+    public void eliminarUsuario(String doc) {
 
-    for (Usuario u : usuarios) {
-        if (u.documento.equals(doc)) {
-            return u;
+        Usuario u = buscarUsuario(doc);
+
+        if (u != null) {
+            usuarios.remove(u);
+            System.out.println("Usuario eliminado");
         }
     }
-
-    return null;
-}
-
-public void eliminarUsuario(String doc) {
-
-    Usuario u = buscarUsuario(doc);
-
-    if (u != null) {
-        usuarios.remove(u);
-        System.out.println("Usuario eliminado");
-    }
-}
 
     public Libro buscarLibro(String isbn) {
 
