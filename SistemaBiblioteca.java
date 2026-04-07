@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.time.Year;
 
 public class SistemaBiblioteca {
 
@@ -8,11 +9,22 @@ public class SistemaBiblioteca {
 
     public void registrarLibro(Libro libro) {
 
+        if (libro.isbn.isEmpty() || libro.titulo.isEmpty() || libro.autor.isEmpty()) {
+            System.out.println("Error: campos vacíos");
+            return;
+        }
+
         for (Libro l : libros) {
             if (l.isbn.equals(libro.isbn)) {
-                System.out.println("Error: ISBN ya existe");
+                System.out.println("Error: ISBN repetido");
                 return;
             }
+        }
+
+        int anioActual = Year.now().getValue();
+        if (libro.anio > anioActual) {
+            System.out.println("Error: año inválido");
+            return;
         }
 
         libros.add(libro);
