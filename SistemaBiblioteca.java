@@ -167,6 +167,11 @@ public class SistemaBiblioteca {
             return;
         }
 
+        if (!(usuario.tipo.equals("Administrador") || usuario.tipo.equals("Bibliotecario"))) {
+            System.out.println("No tiene permisos para prestar");
+            return;
+        }
+
         if (!libro.disponible) {
             System.out.println("Libro no disponible");
             return;
@@ -180,7 +185,7 @@ public class SistemaBiblioteca {
         }
 
         if (contador >= 3) {
-            System.out.println("Usuario alcanzó el límite de préstamos");
+            System.out.println("Límite de préstamos alcanzado");
             return;
         }
 
