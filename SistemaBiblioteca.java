@@ -67,6 +67,47 @@ public class SistemaBiblioteca {
         }
     }
 
+    public void registrarUsuario(Usuario usuario) {
+
+    for (Usuario u : usuarios) {
+        if (u.documento.equals(usuario.documento)) {
+            System.out.println("Documento ya existe");
+            return;
+        }
+    }
+
+    usuarios.add(usuario);
+    System.out.println("Usuario registrado");
+}
+
+public void listarUsuarios() {
+
+    for (Usuario u : usuarios) {
+        u.mostrar();
+    }
+}
+
+public Usuario buscarUsuario(String doc) {
+
+    for (Usuario u : usuarios) {
+        if (u.documento.equals(doc)) {
+            return u;
+        }
+    }
+
+    return null;
+}
+
+public void eliminarUsuario(String doc) {
+
+    Usuario u = buscarUsuario(doc);
+
+    if (u != null) {
+        usuarios.remove(u);
+        System.out.println("Usuario eliminado");
+    }
+}
+
     public Libro buscarLibro(String isbn) {
 
         for (Libro l : libros) {
