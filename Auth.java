@@ -2,23 +2,32 @@ import java.util.Scanner;
 
 public class Auth {
 
-    static String usuario = "admin";
-    static String password = "1234";
+    static String usuario = "Felipe";
+    static String password = "9991";
 
     public static boolean login() {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Usuario: ");
-        String u = sc.nextLine();
+        int intentos = 0;
 
-        System.out.print("Password: ");
-        String p = sc.nextLine();
+        while (intentos < 3) {
 
-        if (u.equals(usuario) && p.equals(password)) {
-            return true;
+            System.out.print("Usuario: ");
+            String u = sc.nextLine();
+
+            System.out.print("Password: ");
+            String p = sc.nextLine();
+
+            if (u.equals(usuario) && p.equals(password)) {
+                return true;
+            }
+
+            intentos++;
+            System.out.println("Datos incorrectos");
         }
 
+        System.out.println("Sistema bloqueado");
         return false;
     }
 }
