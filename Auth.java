@@ -8,7 +8,6 @@ public class Auth {
     public static boolean login() {
 
         Scanner sc = new Scanner(System.in);
-        sc.close();
 
         System.out.print("Usuario: ");
         String u = sc.nextLine();

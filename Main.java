@@ -12,13 +12,11 @@ public class Main {
 
         SistemaBiblioteca sistema = new SistemaBiblioteca();
         Scanner sc = new Scanner(System.in);
-        sc.close();
-
         int opcion;
 
         do {
 
-            System.out.println("\n===== SISTEMA BIBLIOTECA =====");
+            System.out.println("\n|...... SISTEMA BIBLIOTECA ......|");
             System.out.println("1 Registrar libro");
             System.out.println("2 Listar libros");
             System.out.println("3 Buscar libro");
@@ -73,4 +71,5 @@ public class Main {
 
         } while (opcion != 0);
     }
+
 }
