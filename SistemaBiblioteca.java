@@ -43,6 +43,18 @@ public class SistemaBiblioteca {
         }
     }
 
+    public void eliminarLibro(String isbn) {
+
+        Libro libro = buscarLibro(isbn);
+
+        if (libro != null) {
+            libros.remove(libro);
+            System.out.println("Libro eliminado");
+        } else {
+            System.out.println("Libro no encontrado");
+        }
+    }
+
     public Libro buscarLibro(String isbn) {
 
         for (Libro l : libros) {
