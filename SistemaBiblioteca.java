@@ -118,4 +118,75 @@ public class SistemaBiblioteca {
 
         return null;
     }
+
+    public void devolverLibro(String isbn) {
+
+        for (Prestamo p : prestamos) {
+
+            if (p.isbnLibro.equals(isbn)) {
+
+                prestamos.remove(p);
+
+                Libro libro = buscarLibro(isbn);
+                if (libro != null) {
+                    libro.disponible = true;
+                }
+
+                System.out.println("Libro devuelto");
+                return;
+            }
+        }
+
+        System.out.println("Préstamo no encontrado");
+    }
+
+    public void listarPrestamos() {
+
+        if (prestamos.isEmpty()) {
+            System.out.println("No hay préstamos activos");
+            return;
+        }
+
+        for (Prestamo p : prestamos) {
+            System.out.println("Libro: " + p.isbnLibro + " Usuario: " + p.documentoUsuario);
+        }
+    }
+
+    public void registrarPrestamo(String isbn, String documento) {
+
+        Libro libro = buscarLibro(isbn);
+        Usuario usuario = buscarUsuario(documento);
+
+        if (libro == null) {
+            System.out.println("Libro no existe");
+            return;
+        }
+
+        if (usuario == null) {
+            System.out.println("Usuario no existe");
+            return;
+        }
+
+        if (!libro.disponible) {
+            System.out.println("Libro no disponible");
+            return;
+        }
+
+        int contador = 0;
+        for (Prestamo p : prestamos) {
+            if (p.documentoUsuario.equals(documento)) {
+                contador++;
+            }
+        }
+
+        if (contador >= 3) {
+            System.out.println("Usuario alcanzó el límite de préstamos");
+            return;
+        }
+
+        prestamos.add(new Prestamo(isbn, documento));
+        libro.disponible = false;
+
+        System.out.println("Préstamo registrado");
+    }
 }
