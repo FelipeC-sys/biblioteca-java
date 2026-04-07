@@ -31,6 +31,18 @@ public class SistemaBiblioteca {
         System.out.println("Libro registrado correctamente");
     }
 
+    public void actualizarDisponibilidad(String isbn, boolean estado) {
+
+    Libro libro = buscarLibro(isbn);
+
+    if (libro != null) {
+        libro.disponible = estado;
+        System.out.println("Estado actualizado");
+    } else {
+        System.out.println("Libro no encontrado");
+    }
+}
+
     public void listarLibros() {
 
         if (libros.isEmpty()) {
