@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.util.Scanner;
 
 public class Auth {
@@ -8,6 +9,7 @@ public class Auth {
     public static boolean login() {
 
         Scanner sc = new Scanner(System.in);
+        Console console = System.console();
 
         int intentos = 0;
 
@@ -16,8 +18,15 @@ public class Auth {
             System.out.print("Usuario: ");
             String u = sc.nextLine();
 
-            System.out.print("Password: ");
-            String p = sc.nextLine();
+            String p;
+
+            if (console != null) {
+                char[] passArray = console.readPassword("Password: ");
+                p = new String(passArray);
+            } else {
+                System.out.print("Password: ");
+                p = sc.nextLine();
+            }
 
             if (u.equals(usuario) && p.equals(password)) {
                 return true;
