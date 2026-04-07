@@ -20,8 +20,11 @@ public class Main {
             System.out.println("1 Registrar libro");
             System.out.println("2 Listar libros");
             System.out.println("3 Buscar libro");
+            System.out.println("4 Registrar usuario");
+            System.out.println("5 Listar usuarios");
+            System.out.println("6 Buscar usuario");
+            System.out.println("7 Eliminar usuario");
             System.out.println("0 Salir");
-
             opcion = sc.nextInt();
             sc.nextLine();
 
@@ -65,6 +68,51 @@ public class Main {
                     } else {
                         System.out.println("Libro no encontrado");
                     }
+
+                    break;
+                case 4:
+
+                    System.out.print("Documento: ");
+                    String doc = sc.nextLine();
+
+                    System.out.print("Nombre: ");
+                    String nombre = sc.nextLine();
+
+                    System.out.print("Tipo (Administrador/Bibliotecario/Lector): ");
+                    String tipo = sc.nextLine();
+
+                    Usuario usuario = new Usuario(doc, nombre, tipo);
+                    sistema.registrarUsuario(usuario);
+
+                    break;
+
+                case 5:
+
+                    sistema.listarUsuarios();
+
+                    break;
+
+                case 6:
+
+                    System.out.print("Documento: ");
+                    String buscarDoc = sc.nextLine();
+
+                    Usuario u = sistema.buscarUsuario(buscarDoc);
+
+                    if (u != null) {
+                        u.mostrar();
+                    } else {
+                        System.out.println("Usuario no encontrado");
+                    }
+
+                    break;
+
+                case 7:
+
+                    System.out.print("Documento: ");
+                    String eliminar = sc.nextLine();
+
+                    sistema.eliminarUsuario(eliminar);
 
                     break;
             }
