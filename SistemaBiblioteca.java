@@ -167,11 +167,6 @@ public class SistemaBiblioteca {
             return;
         }
 
-        if (!(usuario.tipo.equals("Administrador") || usuario.tipo.equals("Bibliotecario"))) {
-            System.out.println("No tiene permisos para prestar");
-            return;
-        }
-
         if (!libro.disponible) {
             System.out.println("Libro no disponible");
             return;

@@ -17,13 +17,16 @@ public class Main {
         do {
 
             System.out.println("\n|...... SISTEMA BIBLIOTECA ......|");
-            System.out.println("1 Registrar libro");
+            System.out.println("\n1 Registrar libro");
             System.out.println("2 Listar libros");
             System.out.println("3 Buscar libro");
             System.out.println("4 Registrar usuario");
             System.out.println("5 Listar usuarios");
             System.out.println("6 Buscar usuario");
             System.out.println("7 Eliminar usuario");
+            System.out.println("8 Registrar préstamo");
+            System.out.println("9 Devolver libro");
+            System.out.println("10 Ver préstamos");
             System.out.println("0 Salir");
             opcion = sc.nextInt();
             sc.nextLine();
@@ -113,6 +116,32 @@ public class Main {
                     String eliminar = sc.nextLine();
 
                     sistema.eliminarUsuario(eliminar);
+
+                    break;
+                case 8:
+
+                    System.out.print("ISBN del libro: ");
+                    String isbnPrestamo = sc.nextLine();
+
+                    System.out.print("Documento del usuario: ");
+                    String docPrestamo = sc.nextLine();
+
+                    sistema.registrarPrestamo(isbnPrestamo, docPrestamo);
+
+                    break;
+
+                case 9:
+
+                    System.out.print("ISBN del libro: ");
+                    String isbnDev = sc.nextLine();
+
+                    sistema.devolverLibro(isbnDev);
+
+                    break;
+
+                case 10:
+
+                    sistema.listarPrestamos();
 
                     break;
             }
