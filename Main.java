@@ -20,14 +20,14 @@ public class Main {
             System.out.println("\n1 Registrar libro");
             System.out.println("2 Listar libros");
             System.out.println("3 Buscar libro");
-            System.out.println("4 Registrar usuario");
+            System.out.println("\n4 Registrar usuario");
             System.out.println("5 Listar usuarios");
             System.out.println("6 Buscar usuario");
             System.out.println("7 Eliminar usuario");
-            System.out.println("8 Registrar préstamo");
+            System.out.println("\n8 Registrar préstamo");
             System.out.println("9 Devolver libro");
             System.out.println("10 Ver préstamos");
-            System.out.println("0 Salir");
+            System.out.println("\n0 Salir");
             opcion = sc.nextInt();
             sc.nextLine();
 
